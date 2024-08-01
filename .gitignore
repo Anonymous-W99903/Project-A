@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+*.txt
+*.dat
+*.npy
+*.jpg
+.idea
+data
+auto-FI/test.py
+__pycache__
+result
+results
+*.tar
+*.pth
