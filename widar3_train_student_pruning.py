@@ -32,7 +32,7 @@ preread = True
 parser = argparse.ArgumentParser(description='train base net')
 
 # various path
-parser.add_argument('--data_dir', type=str, default="/home/yueyang/dataset/widar3_dfs")
+parser.add_argument('--data_dir', type=str, default="/home/widar3_dfs")
 parser.add_argument('--save_root', type=str, default='./result', help='models and logs are saved here')
 parser.add_argument('--domain_name', type=str)
 # parser.add_argument('--train_domain', type=int)
@@ -437,7 +437,6 @@ def train(train_loader_list, nets, optimizer, criterions, epoch, scheduler) :
 				target = target.cuda(non_blocking=True)
 
 			out_s = snet(x)
-			# 增加了判断条件，不是train domain的不会去寻找对应的域的teacher，减少计算量
 			
 			with torch.no_grad():
 					out_b = baseline(x)
@@ -450,7 +449,6 @@ def train(train_loader_list, nets, optimizer, criterions, epoch, scheduler) :
 				kd_baseline_loss = torch.Tensor([0.0]).cuda()
 			
 			loss = cls_loss  + kd_baseline_loss
-			# 对齐0-based 和1-based
 			domain += 1
 			if domain in args.train_domain:
 				tnet = DOMAIN_TEACHER_MODEL_PAIR[domain]
