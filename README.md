@@ -51,7 +51,7 @@ python3 widar3_train_student_pruning.py --opt Adam --save_root "../widar3/val_lo
 If you have already get the pruned model, use this command instead to extract the model structure for training. It will use the network structure but discard the parameters in it.
 
 ```
-python3 widar3_train_student_v5pruned1.py --opt Adam --save_root "../widar3/loc/v5pruned1_T2_fs_0.8_r1" --data_dir "../CSI_20181130/dfs" --domain_name "loc" \
+python3 widar3_train_student_pruned.py --opt Adam --save_root "../widar3/loc/v5pruned1_T2_fs_0.8_r1" --data_dir "../CSI_20181130/dfs" --domain_name "loc" \
 --train_domain 1 3 4 5   --test_domain 2   --num_class 6    --print_freq 5  --batch_size 64 --epochs 200  --lr 0.001 --gpu_id 0 --adjust_lr linear \
 --warmup 0 --lambda_kd 1 0 1 1 1 --lambda_cls 1  --T 4 --baseline_path  "../widar3/val_location/baseline2/checkpoint_current.pth.tar" \
 --t_dir "../widar3/val_location/" --pruned_model_path "../widar3/val_location/v5_2_Fake_T1_S_p0.8_r1/pruned_model.pth.tar" --lambda_kd_baseline 1
