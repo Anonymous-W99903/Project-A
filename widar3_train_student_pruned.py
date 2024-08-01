@@ -31,7 +31,7 @@ preread = True
 parser = argparse.ArgumentParser(description='train base net')
 
 # various path
-parser.add_argument('--data_dir', type=str, default="/home/yueyang/dataset/widar3_dfs")
+parser.add_argument('--data_dir', type=str, default="/dataset/widar3_dfs")
 parser.add_argument('--save_root', type=str, default='./result', help='models and logs are saved here')
 parser.add_argument('--domain_name', type=str)
 # parser.add_argument('--train_domain', type=int)
